@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Bienvenido!</ion-title>
+    <ion-title>Crear una nueva cuenta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup] = "registerForm" (ngSubmit)="registerUser()" >  
+    <ion-item>
+    <ion-label position="floating">Primer nombre</ion-label>
+    <ion-input formControlName="PrimerNombre" type="text" required></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label position="floating">Segundo nombre</ion-label>
+    <ion-input formControlName="SegundoNombre" type="text" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Primer apellido</ion-label>
+    <ion-input formControlName="PrimerApellido" type="text" required></ion-input>
+  </ion-item>
+  <ion-item >
+    <ion-label position="floating">Segundo apellido</ion-label>
+    <ion-input formControlName="SegundoApellido" type="text" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Nickname</ion-label>
+    <ion-input formControlName="nickname" type="text" required></ion-input>
+  </ion-item>
+  <div>
+    <ng-container *ngFor="let validation of registerFormMessage.nickname">
+      <div *ngIf="registerForm.get('nickname').hasError(validation.type) && (registerForm.get('nickname').touched || (registerForm.get('nickname').dirty))">
+        {{validation.message}}
+      </div>
+    </ng-container>
+  </div>
+  <ion-item>
+    <ion-label position="floating">Email</ion-label>
+    <ion-input formControlName="email" type="text" required></ion-input>
+  </ion-item>
+<div>
+    <ng-container *ngFor="let validation of registerFormMessage.email">
+      <div *ngIf="registerForm.get('email').hasError(validation.type) && (registerForm.get('email').touched || (registerForm.get('email').dirty))">
+        {{validation.message}}
+      </div>
+    </ng-container>
+  </div>
+  <ion-item>
+    <ion-label position="floating">Password</ion-label>
+    <ion-input formControlName="password" type="password" required></ion-input>
+  </ion-item>
+
+  <ion-button [disabled]="!registerForm.valid" (click)="presentAlertMultipleButtons()" class="ion-margin-top" type="submit" expand="block" color="light" (click)="onSubmit()">
+    Crear Cuenta
+  </ion-button>
+
+  <ion-item color="primary" class="ion-text-center">
+    <ion-label>Or</ion-label>
+  </ion-item>
+
+  <ion-button color="dark" expand="block" fill="outline" [routerLink]="['/login']">Login</ion-button>
+  </form>
+
+</ion-content>

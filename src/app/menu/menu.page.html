@@ -1,0 +1,28 @@
+<ion-menu contentId="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-item (click)="goToPage('home')" tab="home">Inicio</ion-item>
+      <ion-item (click)="goToPage('cuenta')">Cuenta</ion-item>
+      <ion-item (click)="goToPage('pelis')">Peliculas</ion-item>  
+      <ion-item (click)="goToPage('favorite')">Mis Favoritos</ion-item>
+      
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="content"></ion-router-outlet>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button routerLink= "/menu/tabs/tab1">
+      <ion-icon name="information-circle"></ion-icon>
+      <ion-label>Cosas que Hacer!</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
+

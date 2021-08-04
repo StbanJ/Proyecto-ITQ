@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>conversation</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p *ngFor="let conversation of conversations">
+    {{conversation.text}}
+  </p>
+</ion-content>
+
+<ion-footer>
+  <form [formGroup] = "formConversation" (ngSubmit)="sendMessage()">
+    <ion-toolbar>
+      <ion-item>
+        <ion-textarea rows="2" formControlName="message"></ion-textarea>
+      </ion-item>
+      <ion-buttons slot="end">
+        <ion-button type="submit">
+          <ion-icon name="send"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </form>
+</ion-footer>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AlertController, ToastController } from '@ionic/angular';
+import { AlertController, MenuController, ToastController } from '@ionic/angular';
 import { ListaService } from '../services/lista.service';
 import { Lista } from '../models/lista.model';
 
@@ -10,11 +10,13 @@ import { Lista } from '../models/lista.model';
 })
 export class Tab1Page {
   constructor(
+    
     public alertController: AlertController,
     public toastController: ToastController,
     public listaService: ListaService,
   ) { }
 
+ 
 
   /**
 * @function AgregarLista
